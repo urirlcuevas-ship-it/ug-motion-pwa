@@ -1,0 +1,9 @@
+UG Motion PWA
+
+Para que se instale como app en iPhone/iPad:
+1. Sube esta carpeta a un hosting HTTPS como Netlify, Vercel o GitHub Pages.
+2. Abre la liga en Safari.
+3. Toca Compartir.
+4. Toca Agregar a pantalla de inicio.
+
+Nota: iPhone no instala PWAs desde archivos locales; necesita una liga web HTTPS.

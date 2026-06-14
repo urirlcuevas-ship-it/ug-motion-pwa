@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d0f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="UG Motion" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>UG Motion</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="brand"><span class="ug">UG</span><span>Motion</span></div>
+        <p id="viewTitle">Dashboard</p>
+      </div>
+      <button id="installBtn" class="ghost">Instalar</button>
+    </header>
+
+    <main>
+      <section id="dashboard" class="view active">
+        <div class="hero">
+          <p>Move Better. Perform Better.</p>
+          <h1>Control de rehab, rendimiento y progreso.</h1>
+          <button id="seedBtn">Cargar demo</button>
+        </div>
+        <div class="grid stats">
+          <article><span>Pacientes</span><strong id="statPatients">0</strong></article>
+          <article><span>Sesiones</span><strong id="statSessions">0</strong></article>
+          <article><span>RPE Prom.</span><strong id="statRpe">-</strong></article>
+          <article><span>Adherencia</span><strong id="statAdherence">92%</strong></article>
+        </div>
+        <canvas id="rpeChart" width="700" height="260"></canvas>
+        <div id="recentSessions" class="list"></div>
+      </section>
+
+      <section id="patients" class="view">
+        <h2>Pacientes / Atletas</h2>
+        <form id="patientForm" class="card form">
+          <input name="name" placeholder="Nombre" required />
+          <input name="sport" placeholder="Deporte / objetivo" required />
+          <input name="injury" placeholder="Lesión / enfoque" required />
+          <button>Agregar paciente</button>
+        </form>
+        <div id="patientList" class="list"></div>
+      </section>
+
+      <section id="sessions" class="view">
+        <h2>Registrar sesión</h2>
+        <form id="sessionForm" class="card form">
+          <select name="patientId" required></select>
+          <input name="program" placeholder="Programa: Rehab rodilla fase 2" required />
+          <input name="exercise" placeholder="Ejercicio principal" required />
+          <input name="load" placeholder="Carga: 3x8 / 80kg / RPE" required />
+          <div class="split"><input name="rpePre" type="number" min="1" max="10" placeholder="RPE pre" required /><input name="rpePost" type="number" min="1" max="10" placeholder="RPE post" required /></div>
+          <textarea name="notes" placeholder="Notas clínicas/técnicas"></textarea>
+          <button>Guardar sesión</button>
+        </form>
+      </section>
+
+      <section id="rehab" class="view">
+        <h2>Biblioteca rehab</h2>
+        <div id="exerciseLibrary" class="library"></div>
+      </section>
+
+      <section id="analysis" class="view">
+        <h2>Análisis</h2>
+        <canvas id="loadChart" width="700" height="260"></canvas>
+        <div class="card"><h3>KPIs sugeridos</h3><p>Dolor, RPE pre/post, adherencia, volumen semanal, calidad técnica, sueño, fatiga y retorno a función.</p></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="dashboard">Inicio</button>
+      <button class="nav-btn" data-view="patients">Pacientes</button>
+      <button class="nav-btn" data-view="sessions">Sesión</button>
+      <button class="nav-btn" data-view="rehab">Rehab</button>
+      <button class="nav-btn" data-view="analysis">Análisis</button>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
